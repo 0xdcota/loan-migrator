@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity 0.8.23;
 
-import {DataTypes} from "@aave-v2/contracts/protocol/libraries/types/DataTypes.sol";
+import {DataTypes} from "./libraries/DataTypes.sol";
 
 interface ILendingPool {
     /**

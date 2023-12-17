@@ -1,1 +1,2 @@
 @aave-v2/contracts/=lib/protocol-v2/contracts/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
