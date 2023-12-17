@@ -143,11 +143,11 @@ contract LoanMigrator is IFlashLoanReceiver {
     }
 
     function _getCallsLength(uint256 debtLength, uint256 aTokenLength) internal pure returns (uint256) {
-        // 1 for each repay fo all debts
-        // 2 * each aTokens to move (erc20.tranferFrom + deposit)
-        // 1 to take final loan to pay back the flashloan
-        //
-        return debtLength + 2 * aTokenLength + 1;
+        // 1 for each repay fo all debts + 
+        // 2 * each aTokens to move (erc20.tranferFrom + deposit) +
+        // 1 to take final loan to pay back the flashloan (including the swap amounts and flashloan premiums) + 
+        // 1 swaps for each debt except for final (debtLength - 1) +
+        return debtLength + (2 * aTokenLength) + 1 + (debtLength - 1);
     }
 
     function _estimatePremium(uint256 flashAmount) internal pure returns (uint256 fee) {
